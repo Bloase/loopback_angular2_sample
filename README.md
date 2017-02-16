@@ -18,8 +18,8 @@ You will need the node and npm updated before the install and run steps
 [http://localhost:3000/explorer](http://localhost:3000/explorer)
 
 ## External documentation
-[https://loopback.io/](LoopBack - The Node.js API Framework)
+[LoopBack - The Node.js API Framework](https://loopback.io/)
 
-[https://angular.io/](Angular - One framework)
+[Angular - One framework](https://angular.io/)
 
-[http://foundation.zurb.com/sites.html](Foundation for Sites 6)
+[Foundation for Sites 6](http://foundation.zurb.com/sites.html)
