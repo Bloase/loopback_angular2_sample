@@ -3,7 +3,7 @@ A project using Angular2 and Loopback together.
 Include the foundation-site library for templating and components
 
 ## How to run
-You will need the node and npm updated before the build and run steps
+You will need the node and npm updated before the install and run steps
 
 ## Install dependences
 > npm install
