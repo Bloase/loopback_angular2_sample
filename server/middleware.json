@@ -43,7 +43,7 @@
   "files": {
       "loopback#static": [
       {
-        "params": "$!../src" 
+        "params": "$!../src/static" 
       }, 
       {
         "paths": [ "/node_modules" ],
@@ -54,8 +54,8 @@
         "params": "$!../dist"
       },
       {
-        "paths": [ "/src" ],
-        "params": "$!../src"
+        "paths": [ "/templates" ],
+        "params": "$!../src/templates"
       }
     ]
   },
