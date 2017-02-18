@@ -41,13 +41,21 @@
     }
   },
   "files": {
-    "loopback#static": [
+      "loopback#static": [
       {
         "params": "$!../src" 
       }, 
       {
         "paths": [ "/node_modules" ],
         "params": "$!../node_modules"
+      }, 
+      {
+        "paths": [ "/dist" ],
+        "params": "$!../dist"
+      },
+      {
+        "paths": [ "/src" ],
+        "params": "$!../src"
       }
     ]
   },
