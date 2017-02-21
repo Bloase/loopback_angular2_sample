@@ -12,14 +12,12 @@ import 'rxjs/add/operator/map';
 })
 export class AppComponent  { 
 
-  noteList: any;
+  noteList : any[] = [];
 
   constructor(private http: Http) {
     http.get('./api/Notes')
-    .map(res => {
-      this.noteList = res.json();
-      console.log(this.noteList);
-    } );
+    .map(res => res.json())
+    .subscribe(noteList => this.noteList = noteList);
   }
 
 }

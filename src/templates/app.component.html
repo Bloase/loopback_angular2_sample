@@ -7,11 +7,14 @@
   </ul>
 </header>
 
-<div class="row">
-    <div class="medium-6 columns">
-        {{ noteList }}
+<div class="content row">
+    <div class="medium-6 large-9 columns">
+        <div class="noteItem" *ngFor="let note of noteList">
+            <h2>{{ note.title }}</h2>
+            <pre>{{ note.content }}</pre>
+        </div>
     </div>
-    <div class="medium-6 columns">
+    <div class="medium-6 large-3 columns">
         <textarea></textarea>
     </div>
 </div>

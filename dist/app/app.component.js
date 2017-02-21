@@ -16,11 +16,10 @@ var AppComponent = (function () {
     function AppComponent(http) {
         var _this = this;
         this.http = http;
+        this.noteList = [];
         http.get('./api/Notes')
-            .map(function (res) {
-            _this.noteList = res.json();
-            console.log(_this.noteList);
-        });
+            .map(function (res) { return res.json(); })
+            .subscribe(function (noteList) { return _this.noteList = noteList; });
     }
     AppComponent = __decorate([
         core_1.Component({
