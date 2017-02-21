@@ -1,7 +1,8 @@
 <header class="header">
-  <h1 class="headline">Loopback and Angular2 <br/><small>by BLOASE</small></h1>
+  <h1 class="headline">Loopback and Angular<br/><small>by BLOASE</small></h1>
   <ul class="header-subnav">
     <li><a href="#" class="is-active">Notes example</a></li>
+    <li><a target="_blank" href="./explorer">API</a></li>
     <li><a target="_blank" href="https://loopback.io/">Loopback</a></li>
     <li><a target="_blank" href="https://angular.io/">Angular</a></li>
   </ul>
@@ -10,11 +11,33 @@
 <div class="content row">
     <div class="medium-6 large-9 columns">
         <div class="noteItem" *ngFor="let note of noteList">
-            <h2>{{ note.title }}</h2>
+            <div>
+                <div class="float-right">
+                    <a class="button" (click)="deleteNote(note)">DEL</a>
+                </div>
+                <h3>{{ note.title }}</h3>
+            </div>
             <pre>{{ note.content }}</pre>
         </div>
     </div>
-    <div class="medium-6 large-3 columns">
-        <textarea></textarea>
+    <div class="medium-6 large-3 columns formItem">
+        <h3>create new item</h3>
+        <form name="formNote">
+            <div class="row">
+                <div class="">
+                <label>Title
+                    <input name="title" type="text" [(ngModel)]="note.title"/>
+                </label>
+                </div>
+                <div class="">
+                <label>Content
+                    <textarea name="content" [(ngModel)]="note.content"></textarea>
+                </label>
+                </div>
+                <div class="">
+                    <a class="button" (click)="includeNote()">Include</a>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

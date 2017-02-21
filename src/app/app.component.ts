@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
@@ -14,10 +14,29 @@ export class AppComponent  {
 
   noteList : any[] = [];
 
+  note: any = { title: '', content: '' };
+
   constructor(private http: Http) {
-    http.get('./api/Notes')
+    this.updateNoteList();
+  }
+
+  updateNoteList() {
+    this.http.get('./api/Notes')
     .map(res => res.json())
     .subscribe(noteList => this.noteList = noteList);
+  }
+
+  deleteNote(note: any) {
+    this.http.delete('./api/Notes/' + note.id)
+    .subscribe(ret => { this.updateNoteList(); });
+  }
+
+  includeNote() {
+    this.http.post('./api/Notes', this.note)
+    .subscribe(ret => {
+      this.note = {};
+      this.updateNoteList();
+    });
   }
 
 }

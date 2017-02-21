@@ -14,13 +14,30 @@ require('rxjs/add/operator/catch');
 require('rxjs/add/operator/map');
 var AppComponent = (function () {
     function AppComponent(http) {
-        var _this = this;
         this.http = http;
         this.noteList = [];
-        http.get('./api/Notes')
+        this.note = { title: '', content: '' };
+        this.updateNoteList();
+    }
+    AppComponent.prototype.updateNoteList = function () {
+        var _this = this;
+        this.http.get('./api/Notes')
             .map(function (res) { return res.json(); })
             .subscribe(function (noteList) { return _this.noteList = noteList; });
-    }
+    };
+    AppComponent.prototype.deleteNote = function (note) {
+        var _this = this;
+        this.http.delete('./api/Notes/' + note.id)
+            .subscribe(function (ret) { _this.updateNoteList(); });
+    };
+    AppComponent.prototype.includeNote = function () {
+        var _this = this;
+        this.http.post('./api/Notes', this.note)
+            .subscribe(function (ret) {
+            _this.note = {};
+            _this.updateNoteList();
+        });
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',

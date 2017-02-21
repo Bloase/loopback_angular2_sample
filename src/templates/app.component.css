@@ -41,8 +41,13 @@
         transition: all 0.35s ease-in-out; 
 }
 
-.content { margin-top: 16px; }
+.content { margin-top: 1em; }
 
 .noteItem {
+    background-color: #f8f8f8;
+    margin-bottom: 0.5em;
+}
+
+.formItem {
     background-color: #f8f8f8;
 }
