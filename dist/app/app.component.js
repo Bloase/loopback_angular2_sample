@@ -9,16 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/map');
 var AppComponent = (function () {
-    function AppComponent() {
-        this.name = 'Angular';
+    function AppComponent(http) {
+        var _this = this;
+        this.http = http;
+        http.get('./api/Notes')
+            .map(function (res) {
+            _this.noteList = res.json();
+            console.log(_this.noteList);
+        });
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: './templates/app.component.html',
+            styleUrls: ['./templates/app.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], AppComponent);
     return AppComponent;
 }());
