@@ -16,7 +16,7 @@ You will need the node and npm updated before the install and run steps
 
 > npm start
 
-## open the project in the navigator (by default, is used the port 3000)
+## open the project in the navigator (by default, it runs with port 3000)
 
 [http://localhost:3000](http://localhost:3000)
 
